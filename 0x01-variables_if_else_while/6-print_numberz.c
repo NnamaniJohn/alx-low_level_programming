@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
 *prints numbers 0-9 without using char or printf/puts,
+* Return: 0 on success
 */
 int main(void)
 
