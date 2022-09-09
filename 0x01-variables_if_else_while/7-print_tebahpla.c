@@ -1,5 +1,7 @@
 #include <stdio.h>
-
+/**
+* prints the lowercase alphabet in revers
+*/
 int main(void)
 
 {
