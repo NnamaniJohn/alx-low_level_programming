@@ -2,7 +2,7 @@
 
 /**
  * rev_string - reverse a string
- * @s: string 
+ * @s: string
  * Return: void
  */
 
@@ -19,7 +19,7 @@ void rev_string(char *s)
 	len = i;
 	i = 0;
 	j = len - 1;
-	
+
 	while (i < j)
 	{
 		temp = s[i];
