@@ -18,9 +18,9 @@ int main(void)
 
 {
 
-    char s1[] = "Hello";
+    char s1[] = "Hellowolk";
 
-    char s2[] = "World!";
+    char s2[] = "Hellowo";
 
 
 
