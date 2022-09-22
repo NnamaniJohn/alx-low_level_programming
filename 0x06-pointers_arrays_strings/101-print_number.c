@@ -16,11 +16,11 @@ void print_number(int n)
 		n = n * -1;
 	}
 
-	while (i <= 1000000000 && n / i >= 10)
+	while (i <= 1000000000 && (n / i) >= 10)
 		i = i * 10;
 	while (i >= 1)
 	{
-		_putchar(((n / i) % 10) + '0');
+		_putchar('0' + ((n / i) % 10));
 		n = n % i;
 		i = i / 10;
 	}
