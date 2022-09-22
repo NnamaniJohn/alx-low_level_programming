@@ -16,7 +16,7 @@ void print_number(int n)
 		n = n * -1;
 	}
 
-	while (n / i >= 10)
+	while (i <= 1000000000 && n / i >= 10)
 		i = i * 10;
 	while (i >= 1)
 	{
