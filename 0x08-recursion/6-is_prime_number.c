@@ -12,7 +12,7 @@ int checker(int n, int base)
 	if (n * n > base)
 		return (1);
 	else if (base % n == 0)
-		return(0);
+		return (0);
 	else
 		return (checker(n + 1, base));
 }
