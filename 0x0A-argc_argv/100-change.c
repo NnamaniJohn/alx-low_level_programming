@@ -32,8 +32,7 @@ int main(int argc, char *argv[])
 		cents += rem / 2;
 		rem = rem % 2;
 		cents += rem;
-		printf("%d\n", cents);	
+		printf("%d\n", cents);
 	}
-	
 	return (0);
 }
