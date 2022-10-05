@@ -23,7 +23,6 @@ char **strtow(char *str)
 	}
 	s = (char **) malloc(sizeof(char *) *  words);
 	if (s == NULL)
-		free(s);
 		return (NULL);
 	words = 0;
 	for (i = 0; str[i]; i++)
