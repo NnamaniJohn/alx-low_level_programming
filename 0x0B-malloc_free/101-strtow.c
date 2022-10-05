@@ -11,7 +11,7 @@ char **strtow(char *str)
 {
 	char *w;
 	char **s;
-	int i = 0, j = 0, k, words = 1, len = 0;
+	int i = 0, j = 0, k, words = 0, len = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
@@ -21,6 +21,8 @@ char **strtow(char *str)
 			words++;
 		i++;
 	}
+	if (str[i] == '\0' && str[i - 1] && str[i - 1] != ' ')
+		words++;
 	if (words == 1)
 		return (NULL);
 	s = (char **) malloc(sizeof(char *) *  (words + 1));
