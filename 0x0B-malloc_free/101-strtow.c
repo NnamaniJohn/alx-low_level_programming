@@ -21,10 +21,10 @@ char **strtow(char *str)
 			words++;
 		i++;
 	}
-	if (words == 1)
-		return (NULL);
 	if (str[i] == '\0' && str[i - 1] && str[i - 1] != ' ')
 		words++;
+	if (words == 0)
+		return (NULL);
 	s = (char **) malloc(sizeof(char *) *  (words + 1));
 	if (s == NULL)
 		return (NULL);
