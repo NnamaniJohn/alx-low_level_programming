@@ -28,8 +28,7 @@ char **strtow(char *str)
 	s = (char **) malloc(sizeof(char *) *  (words + 1));
 	if (s == NULL)
 		return (NULL);
-	words = 0;
-	len = i;
+	words = 0, len = i;
 	for (i = 0; i <= len; i++)
 	{
 		if ((str[i] == ' ' && str[i - 1] && str[i - 1] != ' ')
@@ -48,6 +47,5 @@ char **strtow(char *str)
 		else if (str[i] != ' ')
 			j++;
 	}
-	s[words] = NULL;
 	return (s);
 }
