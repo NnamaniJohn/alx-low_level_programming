@@ -2,6 +2,38 @@
 #include <stdlib.h>
 
 /**
+ * *_strdup - function with one argument
+ * @str: string argument
+ * Description: returns a pointer to allocated space in memory
+ * Return: pointer
+ */
+
+char *_strdup(char *str)
+{
+	int i, j;
+	char *ptr;
+
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (*(str + i) != '\0')
+	{
+		i++;
+	}
+	ptr = malloc(sizeof(char) * i + 1);
+	if (ptr == NULL)
+		return (NULL);
+	j = 0;
+	while (str[j] != '\0')
+	{
+		ptr[j] = str[j];
+		j++;
+	}
+	ptr[j] = '\0';
+											return (ptr);
+}
+
+/**
  * new_dog - funtion to create new dog
  * @name: dog name
  * @age: dog age
@@ -11,42 +43,24 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *n_dog;
-	char *n, *o;
-	int i, j, k;
+	dog_t *new_d;
 
-	if (name == NULL || owner == NULL)
+	new_d = malloc(sizeof(dog_t));
+	if (new_d == NULL)
 		return (NULL);
-
-	while (name[i])
-		i++;
-	while (owner[j])
-		j++;
-	n_dog = malloc(sizeof(dog_t));
-
-	if (n_dog == NULL)
-		return (NULL);
-	n = malloc(sizeof(char) * i + 1);
-	o = malloc(sizeof(char) * j + 1);
-
-	if (n == NULL || o == NULL)
+	new_d->name = _strdup(name);
+	if (!new_d->name)
 	{
-		free(n_dog);
+		free(new_d);
 		return (NULL);
 	}
-	for (k = 0; k < i; k++)
+	new_d->age = age;
+	new_d->owner = _strdup(owner);
+	if (!new_d->owner)
 	{
-		n[k] = name[k];
+		free(new_d->name);
+		free(new_d);
+		return (NULL);
 	}
-	n[k] = '\0';
-	for (k = 0; k < j; k++)
-	{
-		o[k] = owner[k];
-	}
-	o[k] = '\0';
-	n_dog->name = n;
-	n_dog->age = age;
-	n_dog->owner = o;
-
-	return (n_dog);
+	return (new_d);
 }
