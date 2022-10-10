@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <stdlib.h>
 
 /**
  * new_dog - funtion to create new dog
@@ -10,7 +11,7 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	struct dog n_dog;
+	dog_t *n_dog;
 	char *n, *o;
 	int i, j, k;
 
@@ -18,7 +19,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		i++;
 	while (owner[j])
 		j++;
-
+	n_dog = malloc((sizeof(char) * i) + (sizeof(double) * 1) + (sizeof(char) * j));
 	n = malloc(sizeof(char) * i);
 	o = malloc(sizeof(char) * j);
 
@@ -32,9 +33,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		o[j] = owner[j];
 	}
-	n_dog.name = n;
-	n_dog.age = age;
-	n_dog.owner = o;
+	n_dog->name = n;
+	n_dog->age = age;
+	n_dog->owner = o;
 
 	return (n_dog);
 }
