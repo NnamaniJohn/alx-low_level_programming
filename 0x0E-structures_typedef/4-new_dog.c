@@ -15,12 +15,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *n, *o;
 	int i, j, k;
 
+	if (name == NULL || owner == NULL)
+		return (NULL);
+
 	while (name[i])
 		i++;
 	while (owner[j])
 		j++;
-	n_dog = malloc((sizeof(char) * i + 1) +
-			(sizeof(double) * 1) + (sizeof(char) * j + 1));
+	n_dog = malloc(sizeof(dog_t));
+
 	if (n_dog == NULL)
 		return (NULL);
 	n = malloc(sizeof(char) * i + 1);
