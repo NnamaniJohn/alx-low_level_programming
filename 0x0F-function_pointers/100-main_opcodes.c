@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/** main - program that prints the opcodes 
+/**
+ * main - program that prints the opcodes
  * @argc: args count
  * @argv: args value
  * Return: int
