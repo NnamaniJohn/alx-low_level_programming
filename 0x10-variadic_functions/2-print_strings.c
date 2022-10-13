@@ -3,32 +3,33 @@
 #include <stdarg.h>
 
 /**
- * print_numbers - function that prints numbers, followed by a new line
+ * print_strings - function that prints strings, followed by a new line
  * @separator: string
  * @n: int
  * Return: void
  */
 
-void print_numbers(const char *separator, const unsigned int n, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list str;
 	unsigned int i;
+	char *s;
 
 	va_start(str, n);
 	for (i = 0; i < n; i++)
 	{
+		s = va_arg(str, char *);
 		if (i == n - 1 || !separator)
-			if (va_arg(str, char *))
-				printf("%s", va_arg(str, char *));
+			if (s)
+				printf("%s", s);
 			else
 				printf("(nil)");
 		else
-			if (va_arg(str, char *))
-				printf("%s%s", va_arg(str, char *),
-					separator);
+			if (s)
+				printf("%s%s", s, separator);
 			else
 				printf("(nil)%s", separator);
 	}
-	va_end(num);
+	va_end(str);
 	printf("\n");
 }
