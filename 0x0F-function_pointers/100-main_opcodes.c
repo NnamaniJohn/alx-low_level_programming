@@ -7,9 +7,9 @@
  * Return: int
  */
 
-int main(int argc, **argv)
+int main(int argc, char **argv)
 {
-	int num;
+	int num, i;
 
 	if (argc != 2)
 	{
@@ -26,7 +26,7 @@ int main(int argc, **argv)
 	for (i = 0; i < num; i++)
 	{
 		printf("%02hhx", *((char *)main + i));
-		if (i < n - 1)
+		if (i < num - 1)
 			printf(" ");
 		else
 			printf("\n");
