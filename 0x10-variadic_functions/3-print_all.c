@@ -2,6 +2,36 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+typedef struct ft
+{
+	char f;
+	void (*func)();
+} ft_t;
+
+void p_char(va_list a)
+{
+	printf("%c", va_arg(a, int));
+}
+
+void p_int(va_list a)
+{
+	printf("%d", va_arg(a, int));
+}
+
+void p_float(va_list a)
+{
+	printf("%f", va_arg(a, double));
+}
+
+void p_string(va_list a)
+{
+	char *s = va_arg(a, char *);
+
+	if (!s)
+		s = "(nil)";
+	printf("%s", s);
+}
+
 /**
  * print_all
  * @format: array of format
@@ -11,38 +41,28 @@
 void print_all(const char * const format, ...)
 {
 	va_list str;
-	int i = 0;
-	char *s;
+	int i = 0, j;
+	char *sep = "";
+	ft_t arr[] = {
+		{'c', p_char},
+		{'i', p_int},
+		{'f', p_float},
+		{'s', p_string}
+	};
 
 	va_start(str, format);
 	while(format[i])
 	{
-		switch (format[i]) 
+		j = 0;
+		while (j < 4)
 		{
-			case 'c':
-				printf("%c", va_arg(str, int));
-				if (format[i + 1])
-					printf(", ");
-				break;
-			case 'i':
-				printf("%d", va_arg(str, int));
-				if (format[i + 1])
-					printf(", ");
-				break;
-			case 'f':
-				printf("%f", va_arg(str, double));
-				if (format[i + 1])
-					printf(", ");
-				break;
-			case 's':
-				s = va_arg(str, char *);
-				if (s)
-					printf("%s", va_arg(str, char *));
-				else
-					printf("(nil)");
-				if (format[i + 1])
-					printf(", ");
-				break;
+			if (format[i] == arr[j].f)
+			{
+				printf("%s", sep);
+				arr[j].func(str);
+				sep = ", ";
+			}
+			j++;
 		}
 		i++;
 	}
