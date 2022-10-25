@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * print_listint - function that prints all the elements of a listint_t list
+ * print_listint_safe - function that prints all the elements of
+ * a listint_t list
  * @head: list type
  * Return: the number of nodes
  */
@@ -13,7 +14,7 @@ size_t print_listint_safe(const listint_t *head)
 	int is_loop = 0;
 
 	if (!head)
-		exit (98);
+		exit(98);
 	slow = fast = head->next;
 	while (slow != NULL && fast != NULL && fast->next != NULL)
 	{
@@ -24,9 +25,7 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	while (head != NULL)
 	{
-		if (head == slow->next && is_loop)
-			break;
-		else
+		if (head != slow->next || !is_loop)
 		{
 			if (head == slow->next)
 				is_loop = 1;
@@ -34,6 +33,8 @@ size_t print_listint_safe(const listint_t *head)
 			head = head->next;
 			size++;
 		}
+		else
+			break;
 	}
 	return (size);
 }
