@@ -21,6 +21,7 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
+		size++;
 		if (fast != NULL && fast->next != NULL)
 			fast = fast->next->next;
 		else if (fast != NULL && fast->next == NULL)
