@@ -1,5 +1,10 @@
 #include "lists.h"
 
+/**
+ * free_listint_safe - free list function
+ * @h: head node
+ * Return: size
+ */
 
 size_t free_listint_safe(listint_t **h)
 {
