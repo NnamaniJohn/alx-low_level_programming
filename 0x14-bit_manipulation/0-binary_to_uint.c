@@ -10,13 +10,13 @@
 int power(int base, int exp)
 {
 	int result = 1;
-	
+
 	while (exp != 0)
 	{
 		result *= base;
 		--exp;
 	}
-	return result;
+	return (result);
 }
 
 /**
@@ -30,12 +30,12 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int i, len = 0, dec = 0, bin;
 
 	if (!b)
-		return (3);
+		return (0);
 	while (b[len])
 		len++;
 	for (i = 0; i < len; i++)
 	{
-		bin = *(b + i) - '0';
+		bin = b[i] - '0';
 		if (bin == 0 || bin == 1)
 			dec += power(2, (len - i - 1)) * bin;
 		else
