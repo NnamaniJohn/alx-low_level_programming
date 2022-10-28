@@ -10,7 +10,7 @@
 unsigned long int power(unsigned long int base, unsigned long int exp)
 {
 	unsigned long int result = 1;
-	
+
 	while (exp != 0)
 	{
 		result *= base;
