@@ -20,8 +20,8 @@ int get_bit(unsigned long int n, unsigned int index)
 		base *= 2;
 		pow++;
 	}
-	if (index > pow - 1)
-		return (-1);
+	if (index > pow - 1 && index < 63)
+		return (0);
 	bin = malloc(sizeof(int) * pow);
 	if (bin == NULL)
 	{
