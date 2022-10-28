@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
  * get_bit - function that returns the value of a bit at a given index
@@ -10,30 +9,16 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned long int base = 2;
-	unsigned int pow = 1, i;
-	int ret;
-	int *bin;
+	unsigned int i = 0;
 
-	while (base <= n)
+	while (n)
 	{
-		base *= 2;
-		pow++;
-	}
-	if (index > pow - 1 && index < 63)
-		return (0);
-	bin = malloc(sizeof(int) * pow);
-	if (bin == NULL)
-	{
-		free(bin);
-		return (-1);
-	}
-	for (i = 0; i < pow; i++)
-	{
-		bin[i] = n % 2;
+		if (index == i)
+			return (n % 2);
 		n = n / 2;
+		i++;
 	}
-	ret = bin[index];
-	free(bin);
-	return (ret);
+	if (index > i && index < 63)
+		return (0);
+	return (-1);
 }
