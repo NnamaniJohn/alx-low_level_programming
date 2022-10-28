@@ -7,12 +7,12 @@
  * Return: void
  */
 
-void prt_bin(unsigned long int pow, unsigned long int n)
+void prt_bin(unsigned long int n)
 {
 	if (n < 1)
 		return;
 
-	_divide(n >> 1);
+	prt_bin(n >> 1);
 
 	if (n & 1)
 		_putchar('1');
@@ -34,5 +34,5 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	_divide(n);
+	prt_bin(n);
 }
