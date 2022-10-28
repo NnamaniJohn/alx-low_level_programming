@@ -2,7 +2,6 @@
 
 /**
  * prt_bin - print binary
- * @pow: power
  * @n: number
  * Return: void
  */
