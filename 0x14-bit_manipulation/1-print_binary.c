@@ -55,7 +55,7 @@ void print_binary(unsigned long int n)
 		_putchar(n + '0');
 	else
 	{
-		while (base < n)
+		while (base <= n)
 		{
 			pow++;
 			base *= 2;
