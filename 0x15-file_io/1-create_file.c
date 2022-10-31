@@ -3,7 +3,7 @@
 /**
  * create_file - function that creates a file
  * @filename: name of file
- * @text_context: context of file
+ * @text_content: context of file
  * Return: int
  */
 
