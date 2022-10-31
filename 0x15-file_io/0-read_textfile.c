@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * read_textfile - function that reads a text file and
@@ -11,7 +12,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	char *buf[1024];
+	char *buf;
 	ssize_t let;
 
 	if (!filename)
@@ -20,8 +21,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
+	buf = malloc(sizeof(char) * letters + 1);
+	if (buf == NULL)
+		return (0);
 	read(fd, buf, letters);
-	buf[letters + 1] = '\0';
+	buf[letters] = '\0';
 	let = write(STDOUT_FILENO, buf, letters);
 	if (let == -1 || let < (ssize_t) letters)
 		return (0);
