@@ -156,4 +156,4 @@ int f6(char c)
 		ret = rand();
 
 	return ((ret ^ 0xe5) & 0x3f);
-
+}
