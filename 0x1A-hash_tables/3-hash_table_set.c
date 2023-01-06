@@ -19,6 +19,8 @@ int handle_collision(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (strcmp(next->key, key) == 0)
 		{
+			free(next->value);
+			next->value = (char *) malloc(strlen(value) + 1);
 			strcpy(next->value, value);
 			break;
 		}
