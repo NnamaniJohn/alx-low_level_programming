@@ -4,13 +4,15 @@
  * handle_collision - handle collision
  * @ht: hash table
  * @index: index
- * Return: void
+ * Return: int
  */
 
-void handle_collision(hash_table_t *ht, unsigned long int index)
+int handle_collision(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *node, *new, *next;
+	unsigned long int index;
 
+	index = key_index((const unsigned char *)key, ht->size);
 	next = node = ht->array[index];
 	while (next)
 	{
@@ -38,6 +40,7 @@ void handle_collision(hash_table_t *ht, unsigned long int index)
 				next = next->next;
 		}
 	}
+	return (1);
 }
 
 /**
@@ -62,7 +65,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (node == NULL)
 	{
 		node = malloc(sizeof(hash_node_t));
-		if (new == NULL)
+		if (node == NULL)
 			return (0);
 		node->key = (char *) malloc(strlen(key) + 1);
 		node->value = (char *) malloc(strlen(value) + 1);
@@ -73,7 +76,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		handle_collision(ht, index)
+		if (handle_collision(ht, key, value) == 0)
+			return (0);
 	}
 	return (1);
 }
