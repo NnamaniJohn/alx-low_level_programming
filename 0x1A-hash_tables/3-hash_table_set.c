@@ -3,7 +3,8 @@
 /**
  * handle_collision - handle collision
  * @ht: hash table
- * @index: index
+ * @key: key
+ * @value: value
  * Return: int
  */
 
