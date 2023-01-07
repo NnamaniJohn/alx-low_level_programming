@@ -1,5 +1,11 @@
 #include "hash_tables.h"
 
+/**
+ * hash_node_delete - function that deletes a hash node
+ * @node: hash node
+ * Return: void
+ */
+
 void hash_node_delete(hash_node_t *node)
 {
 	if (node)
@@ -20,6 +26,7 @@ void hash_node_delete(hash_node_t *node)
 void hash_table_delete(hash_table_t *ht)
 {
 	unsigned long int i;
+
 	if (ht)
 	{
 		for (i = 0; i < ht->size; i++)
